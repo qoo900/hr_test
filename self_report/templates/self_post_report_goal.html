@@ -1,0 +1,712 @@
+{% extends 'partials/base_self.html' %}
+{% load static %}
+{% block extra_css%}
+    <!-- twitter-bootstrap-wizard css -->
+    <link rel="stylesheet" href="{% static 'libs/twitter-bootstrap-wizard/prettify.css' %}">
+    <link href="{% static 'libs/bootstrap-rating/bootstrap-rating.css'%}" rel="stylesheet" type="text/css" />
+
+    <!-- DataTables -->
+    <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-autoFill-bs4/css/autoFill.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'libs/datatables.net-keytable-bs4/css/keyTable.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+{% endblock extra_css %}
+{% block content %}     
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                {% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' or users_detail.level == '2' and user.level == '2' and users_detail.email == user.email or users_detail.level == '3' and user.level == '3' and users_detail.email == user.email or users_detail.level == '4' and user.level == '4' and users_detail.email == user.email %}
+                {% for report in report_detail_001.all %}
+                <div id="accordion" class="custom-accordion">
+                    <div class="card mb-1 shadow-none">
+                        <a href="#collapseOne" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                            <div class="card-header" id="headingOne">
+                                <h6 class="m-0">
+                                    자기평가
+                                    <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                </h6>
+                            </div>
+                        </a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion" style="">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <h4 class="card-title"><i class="ri-user-star-line"></i> 작성자 : {{report.name}}</h4>
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>항목</th>
+                                                <th>평가결과</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 1</th>
+                                                <td>{{report.report_01_01}}</td>
+                                                <td>{{report.report_01_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 2</th>
+                                                <td>{{report.report_02_01}}</td>
+                                                <td>{{report.report_02_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 3</th>
+                                                <td>{{report.report_03_01}}</td>
+                                                <td>{{report.report_03_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 4</th>
+                                                <td>{{report.report_04_01}}</td>
+                                                <td>{{report.report_04_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 5</th>
+                                                <td>{{report.report_05_01}}</td>
+                                                <td>{{report.report_05_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 6</th>
+                                                <td>{{report.report_06_01}}</td>
+                                                <td>{{report.report_06_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 7</th>
+                                                <td>{{report.report_07_01}}</td>
+                                                <td>{{report.report_07_02}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">기타사항 1</th>
+                                                <td>차기(2021년) 고과대상기간 중 추진코자 하는 업무목표가 있다면?(5개 이내로 설정 요망)</td>
+                                                <td>{{report.report_08_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 2</th>
+                                                <td>본인과 회사의 발전을 위해, 연구하고 업무를 싶은 분야가 있다면 기술하세요. 그리고 본인의 발전을 위해 자기계발 혹은 학습되기 원하는 분야가 있다면?</td>
+                                                <td>{{report.report_09_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 3</th>
+                                                <td>기타 인사상의 건의, 요망사항이 있다면 기술하세요</td>
+                                                <td>{{report.report_10_01}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% if users_detail.level == '3' and user.level == '2' and users_detail.department == user.department or users_detail.level == '4' and user.level == '3' and users_detail.team == user.team %}
+                {% for report in report_detail_001.all %}
+                <div id="accordion" class="custom-accordion">
+                    <div class="card mb-1 shadow-none">
+                        <a href="#collapseThree" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo">
+                                <h6 class="m-0">
+                                    자기평가 작성본
+                                    <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                </h6>
+                            </div>
+                        </a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion" style="">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <h4 class="card-title"><i class="ri-user-star-line"></i>주요업무실적</h4>
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>항목</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 1</th>
+                                                <td>{{report.report_01_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 2</th>
+                                                <td>{{report.report_02_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 3</th>
+                                                <td>{{report.report_03_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 4</th>
+                                                <td>{{report.report_04_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 5</th>
+                                                <td>{{report.report_05_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 6</th>
+                                                <td>{{report.report_06_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 7</th>
+                                                <td>{{report.report_07_01}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+
+                {% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' or users_detail.level == '3' and user.level == '2' and users_detail.department == user.department or users_detail.level == '4' and user.level == '3' and users_detail.team == user.team %}
+                {% for report in report_detail_002.all %}
+                <div id="accordion" class="custom-accordion">
+                    <div class="card mb-1 shadow-none">
+                        <a href="#collapseTwo" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo">
+                                <h6 class="m-0">
+                                    1차고과
+                                    <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                </h6>
+                            </div>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion" style="">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <h4 class="card-title"><i class="ri-user-star-line"></i> 작성자 : {{report.name}}</h4>
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>항목</th>
+                                                <th>평가결과</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 1</th>
+                                                <td>{{report.report_01_01}}</td>
+                                                <td>{{report.report_01_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 2</th>
+                                                <td>{{report.report_02_01}}</td>
+                                                <td>{{report.report_02_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 3</th>
+                                                <td>{{report.report_03_01}}</td>
+                                                <td>{{report.report_03_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 4</th>
+                                                <td>{{report.report_04_01}}</td>
+                                                <td>{{report.report_04_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 5</th>
+                                                <td>{{report.report_05_01}}</td>
+                                                <td>{{report.report_05_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 6</th>
+                                                <td>{{report.report_06_01}}</td>
+                                                <td>{{report.report_06_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 7</th>
+                                                <td>{{report.report_07_01}}</td>
+                                                <td>{{report.report_07_02}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">기타사항 1</th>
+                                                <td>차기(2021년) 고과대상기간 중 추진코자 하는 업무목표가 있다면?(5개 이내로 설정 요망)</td>
+                                                <td>{{report.report_08_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 2</th>
+                                                <td>본인과 회사의 발전을 위해, 연구하고 업무를 싶은 분야가 있다면 기술하세요. 그리고 본인의 발전을 위해 자기계발 혹은 학습되기 원하는 분야가 있다면?</td>
+                                                <td>{{report.report_09_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 3</th>
+                                                <td>기타 인사상의 건의, 요망사항이 있다면 기술하세요</td>
+                                                <td>{{report.report_10_01}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                
+                {% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' or users_detail.level == '4' and user.level == '2' and users_detail.department == user.department %}
+                {% for report in report_detail_003.all %}
+                <div id="accordion" class="custom-accordion">
+                    <div class="card mb-1 shadow-none">
+                        <a href="#collapseThree" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo">
+                                <h6 class="m-0">
+                                    2차고과
+                                    <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                </h6>
+                            </div>
+                        </a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion" style="">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <h4 class="card-title"><i class="ri-user-star-line"></i> 작성자 : {{report.name}}</h4>
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>항목</th>
+                                                <th>평가결과</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 1</th>
+                                                <td>{{report.report_01_01}}</td>
+                                                <td>{{report.report_01_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 2</th>
+                                                <td>{{report.report_02_01}}</td>
+                                                <td>{{report.report_02_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 3</th>
+                                                <td>{{report.report_03_01}}</td>
+                                                <td>{{report.report_03_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 4</th>
+                                                <td>{{report.report_04_01}}</td>
+                                                <td>{{report.report_04_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 5</th>
+                                                <td>{{report.report_05_01}}</td>
+                                                <td>{{report.report_05_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 6</th>
+                                                <td>{{report.report_06_01}}</td>
+                                                <td>{{report.report_06_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 7</th>
+                                                <td>{{report.report_07_01}}</td>
+                                                <td>{{report.report_07_02}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">기타사항 1</th>
+                                                <td>차기(2021년) 고과대상기간 중 추진코자 하는 업무목표가 있다면?(5개 이내로 설정 요망)</td>
+                                                <td>{{report.report_08_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 2</th>
+                                                <td>본인과 회사의 발전을 위해, 연구하고 업무를 싶은 분야가 있다면 기술하세요. 그리고 본인의 발전을 위해 자기계발 혹은 학습되기 원하는 분야가 있다면?</td>
+                                                <td>{{report.report_09_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 3</th>
+                                                <td>기타 인사상의 건의, 요망사항이 있다면 기술하세요</td>
+                                                <td>{{report.report_10_01}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+
+                {% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' %}
+                {% for report in report_detail_004.all %}
+                <div id="accordion" class="custom-accordion">
+                    <div class="card mb-1 shadow-none">
+                        <a href="#collapseThree" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo">
+                                <h6 class="m-0">
+                                    3차고과
+                                    <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                </h6>
+                            </div>
+                        </a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion" style="">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <h4 class="card-title"><i class="ri-user-star-line"></i> 작성자 : {{report.name}}</h4>
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>항목</th>
+                                                <th>평가결과</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 1</th>
+                                                <td>{{report.report_01_01}}</td>
+                                                <td>{{report.report_01_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 2</th>
+                                                <td>{{report.report_02_01}}</td>
+                                                <td>{{report.report_02_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 3</th>
+                                                <td>{{report.report_03_01}}</td>
+                                                <td>{{report.report_03_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 4</th>
+                                                <td>{{report.report_04_01}}</td>
+                                                <td>{{report.report_04_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 5</th>
+                                                <td>{{report.report_05_01}}</td>
+                                                <td>{{report.report_05_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 6</th>
+                                                <td>{{report.report_06_01}}</td>
+                                                <td>{{report.report_06_02}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">업무추진 실적 7</th>
+                                                <td>{{report.report_07_01}}</td>
+                                                <td>{{report.report_07_02}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">기타사항 1</th>
+                                                <td>차기(2021년) 고과대상기간 중 추진코자 하는 업무목표가 있다면?(5개 이내로 설정 요망)</td>
+                                                <td>{{report.report_08_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 2</th>
+                                                <td>본인과 회사의 발전을 위해, 연구하고 업무를 싶은 분야가 있다면 기술하세요. 그리고 본인의 발전을 위해 자기계발 혹은 학습되기 원하는 분야가 있다면?</td>
+                                                <td>{{report.report_09_01}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">기타사항 3</th>
+                                                <td>기타 인사상의 건의, 요망사항이 있다면 기술하세요</td>
+                                                <td>{{report.report_10_01}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                
+                <p></P>
+                    <a href="{% url 'self_detail' users_detail.pk %}" class="text-primary"><i class="ri-arrow-go-back-line" style="margin-right:5px"></i>뒤로가기</a>
+                <p></p>
+
+                {% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' or users_detail.level == '2' and user.level == '2' and users_detail.email == user.email or users_detail.level == '3' and user.level == '3' and users_detail.email == user.email or users_detail.level == '4' and user.level == '4' and users_detail.email == user.email or users_detail.level == '4' and user.level == '2' and users_detail.department == user.department or users_detail.level == '3' and user.level == '2' and users_detail.department == user.department or users_detail.level == '4' and user.level == '3' and users_detail.team == user.team %}
+
+                <div class="row">
+                    <div class="col-l-7">
+                        <div class=x"mt-4 mt-xl-3">
+                            <h5 class="mt-1 mb-3" style="font-weight: bold;">자기신고서</h5>
+                            
+                            <ul class="list-unstyled product-desc-list">
+                                <li><i class="mdi mdi-circle-medium me-1 align-middle"></i>자기신고서는 본인이 2021년 수행한 업무에 대한 성과를 작성하고 스스로 그 업무에 대한 평가를 합니다. (인사평가 점수에는 미반영)</li>
+                                <li><i class="mdi mdi-circle-medium me-1 align-middle"></i>평가자들은 자기신고서 내용을 기반으로 평가등급을 선정하며, 해당 평가결과는 평가자별 가중치에 따라 인사평가 점수로 반영됩니다.</li>
+                            </ul>
+
+                            <hr class="my-4">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div>
+                                        <p class="mt-3">(1) 평가요령 : 자신의 업무실력에 대해 S(탁월), A(우수), B(보통), C(미흡), D(아주미흡)로 구분하여 평가합니다.</p>
+                                        <p class="mt-3">(2) 1, 2차 고과자도 1번의 평가요령에 따라 평가합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div id="checkout-nav-pills-wizard" class="twitter-bs-wizard">
+                    평가대상이 아닙니다.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- end card -->
+</div>
+<!-- end row -->
+{% if users_detail.level == '1' and user.level == '1' or users_detail.level == '2' and user.level == '1' or users_detail.level == '3' and user.level == '1' or users_detail.level == '4' and user.level == '1' or users_detail.level == '2' and user.level == '2' and users_detail.email == user.email or users_detail.level == '3' and user.level == '3' and users_detail.email == user.email or users_detail.level == '4' and user.level == '4' and users_detail.email == user.email or users_detail.level == '4' and user.level == '2' and users_detail.department == user.department or users_detail.level == '3' and user.level == '2' and users_detail.department == user.department or users_detail.level == '4' and user.level == '3' and users_detail.team == user.team %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="checkout-nav-pills-wizard" class="twitter-bs-wizard">
+                    <ul class="twitter-bs-wizard-nav">
+                        <li class="nav-item">
+                            <a href="#self_report_001" class="nav-link" data-toggle="tab">
+                                <span class="step-number">01</span>
+                                <span class="step-title">2021년 업무추진 실적</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#self_report_002" class="nav-link" data-toggle="tab">
+                                <span class="step-number">02</span>
+                                <span class="step-title">기타사항</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <form action="{% url 'self_submit_report_goal' users_detail.pk %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class="tab-content twitter-bs-wizard-tab-content">
+                        <div class="tab-pane" id="self_report_goal_001">
+                            <h5 class="card-title" style="font-weight: bold;">2021년 업무추진 실적</h5>
+                            <p class="card-title-desc">* 이 신고서는 고과대상기간의 업무추진 실적과 자신의 직무 상황을 본인 및 인사평가자가 정확히 파악하여 인사평가에 반영하기 위한 것이므로 성실히 기록하여 주시기 바랍니다.</p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-editable table-nowrap align-middle table-edits">
+                                        <thead>
+                                            <tr style="cursor: pointer;">
+                                                <th>구분</th>
+                                                <th>주요업무실적 (※ 중요도 순으로 구체적인 기술을 바람)</th>
+                                                <th>자기평가</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">1</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_01_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_01_02" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_01_03" rows="2" placeholder=""></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">2</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_02_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_02_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_02_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">3</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_03_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_03_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_03_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">4</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_04_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_04_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_04_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">5</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_05_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_05_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_05_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">6</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_06_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_06_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_06_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr data-id="1" style="cursor: pointer;">
+                                                <td style="width: 80px">7</td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_07_01" rows="2" placeholder=""></textarea>
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_07_02" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                                <td style="width: 80px;">
+                                                    <textarea class="input-large form-control" id="message" name="report_goal_07_03" rows="2" placeholder=""></textarea>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+
+                        <div class="tab-pane" id="self_report_goal_002">
+                            <h5 class="card-title" style="font-weight: bold;">기타사항</h5>
+                            <p class="card-title-desc">* 이 신고서는 고과대상기간의 업무추진 실적과 자신의 직무 상황을 본인 및 인사평가자가 정확히 파악하여 인사평가에 반영하기 위한 것이므로 성실히 기록하여 주시기 바랍니다.</p>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card border rounded active shipping-address">
+                                            <div class="card-body">
+                                                <h5 class="font-size-14" style="font-weight: bold;">항목 1</h5>
+                                                <p class="mb-1">차기(2021년) 고과대상기간 중 추진코자 하는 업무목표가 있다면?(5개 이내로 설정 요망)</p>
+                                                <textarea class="input-large form-control" id="message" name="report_08_01" rows="2" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card border rounded active shipping-address">
+                                            <div class="card-body">
+                                                <h5 class="font-size-14" style="font-weight: bold;">항목 2</h5>
+                                                <p class="mb-1">본인과 회사의 발전을 위해, 연구하고 업무를 싶은 분야가 있다면 기술하세요. 그리고 본인의 발전을 위해 자기계발 혹은 학습되기 원하는 분야가 있다면?</p>
+                                                <textarea class="input-large form-control" id="message" name="report_09_01" rows="2" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card border rounded active shipping-address">
+                                            <div class="card-body">
+                                                <h5 class="font-size-14" style="font-weight: bold;">항목 3</h5>
+                                                <p class="mb-1">기타 인사상의 건의, 요망사항이 있다면 기술하세요</p>
+                                                <textarea class="input-large form-control" id="message" name="report_10_01" rows="2" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card border rounded active shipping-address">
+                                            <div class="card-body">
+                                                <h5 class="font-size-14" style="font-weight: bold;">항목 4</h5>
+                                                <p class="mb-1">기타 인사상의 건의, 요망사항이 있다면 기술하세요</p>
+                                                <textarea class="input-large form-control" id="message" name="report_11_01" rows="2" placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 text-right" style="text-align: end;">
+                                    <button type="submit" id="report_goal_submit" class="btn btn-success" style="text-align=right;" onClick="this.style.visibility='hidden'">제출하기(수정가능)</button>
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="pager wizard twitter-bs-wizard-pager-link">
+                            <li class="previous"><a href="#">이전</a></li>
+                            <li class="next"><a href="#">다음</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="font-weight: bold;">상사의견</h5>
+                <div class="border p-4 rounded">
+                    <div class="d-flex border-bottom pb-3">
+                        <div class="flex-1">
+                            <p class="text-muted mb-2">1차고과자(팀장) 의견 내용 001</p>
+                            <h5 class="font-size-15 mb-3">1차고과자(팀장)</h5>
+                        </div>
+                        <p class="float-sm-end font-size-12">Nov. 14, 2021, 3:59 p.m.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- end row -->
+{% else %}
+{% endif %}
+
+{% endblock content %}
+{% block extra_javascript %}
+    <!-- twitter-bootstrap-wizard js -->
+    <script src="{% static 'libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js' %}"></script>
+
+    <script src="{% static 'libs/twitter-bootstrap-wizard/prettify.js' %}"></script>
+    <!-- ecommerce-checkout init -->
+    <script src="{% static 'js/pages/ecommerce-checkout.init.js' %}"></script>
+
+    <script src="{% static 'libs/bootstrap-rating/bootstrap-rating.min.js' %}"></script>
+
+    <script src="{% static 'js/pages/rating-init.js' %}"></script>
+
+{% endblock extra_javascript %}
