@@ -69,8 +69,8 @@ AUTHENTICATION_BACKENDS = [
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "APP": {
-            "client_id": os.getenv("805524568806-vdhmcnk9rr5bhjlqr4ne07uh5rakdhpp.apps.googleusercontent.com"),
-            "secret": os.getenv("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"),
+            "client_id": os.getenv(""),
+            "secret": os.getenv(""),
             "key": ""
         },
         # These are provider-specific settings that can only be
