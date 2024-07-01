@@ -96,7 +96,7 @@ def self_home (request):
                    'users_list':users_list, 
                    'users_url':users_url, 
                    'user_level':user_level,
-                   'title':'2021년도 자기평가서 고과대상', 'pageview':'2021년도 자기평가서'})
+                   'title':'2024년도 자기평가서 고과대상', 'pageview':'2024년도 자기평가서'})
 
 #자기평가 상세
 @login_required
@@ -116,7 +116,7 @@ def self_detail (request, pk):
     user_level = i_level[0]
     user_email = i_email[0]
     user_team = i_team[0]
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'team':user_team, 'title':'2021년도 자기평가서 고과대상', 'pageview':'2021년도 자기평가서'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'team':user_team, 'title':'2024년도 자기평가서 고과대상', 'pageview':'2024년도 자기평가서'})
 
 
 #자기평가 태도 작성
@@ -147,7 +147,7 @@ def self_post_attitude (request, pk):
     report_detail_004 = AttitudeModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_003}")
 
     
-    return render(request, 'self_post_attitude.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (태도)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_post_attitude.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (태도)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 태도 평가제출
@@ -230,7 +230,7 @@ def self_submit_attitude (request, pk):
         filled_form = AttitudeForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (태도)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (태도)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 능력 작성
@@ -261,7 +261,7 @@ def self_post_ability (request, pk):
     report_detail_003 = AbilityModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_002}")
     report_detail_004 = AbilityModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_003}")
 
-    return render(request, 'self_post_ability.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (능력)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_post_ability.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (능력)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 능력 평가제출
@@ -339,7 +339,7 @@ def self_submit_ability (request, pk):
         filled_form = AbilityForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (능력)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (능력)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 업적 작성
@@ -373,7 +373,7 @@ def self_post_achievement (request, pk):
     report_detail_report_001 = ReportModel.objects.filter(email=f"{users_detail.email}", level=f"{users_detail.level}")
 
     
-    return render(request, 'self_post_achievement.html', {'report_detail_report_001':report_detail_report_001, 'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (업적)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_post_achievement.html', {'report_detail_report_001':report_detail_report_001, 'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (업적)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 업적 평가제출
@@ -428,7 +428,7 @@ def self_submit_achievement (request, pk):
         filled_form = AchievementForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (업적)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (업적)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 
@@ -460,7 +460,7 @@ def self_post_schedule (request, pk):
     report_detail_003 = ScheduleModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_002}")
     report_detail_004 = ScheduleModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_003}")
     
-    return render(request, 'self_post_schedule.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (직무상황)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_post_schedule.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (직무상황)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 #자기평가 직무상황 평가제출
@@ -521,7 +521,7 @@ def self_submit_schedule (request, pk):
         filled_form = ScheduleForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기평가서 (직무상황)', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기평가서 (직무상황)', 'pageview':'2024년도 자기평가서 작성'})
 
 
 
@@ -553,7 +553,7 @@ def self_post_report (request, pk):
     report_detail_003 = ReportModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_002}")
     report_detail_004 = ReportModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_003}")
     
-    return render(request, 'self_post_report.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기신고서 작성', 'pageview':'2021년도 자기평가서 고과대상'})
+    return render(request, 'self_post_report.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기신고서 작성', 'pageview':'2024년도 자기평가서 고과대상'})
 
 
 #자기신고서 평가제출
@@ -636,7 +636,7 @@ def self_submit_report (request, pk):
         filled_form = ReportForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기신고서', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기신고서', 'pageview':'2024년도 자기평가서 작성'})
 
 
 
@@ -668,7 +668,7 @@ def self_post_report_etc (request, pk):
     report_detail_003 = ReportETCModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_002}")
     report_detail_004 = ReportETCModel.objects.filter(email=f"{users_detail.email}", level=f"{user_level_003}")
     
-    return render(request, 'self_post_report_etc.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기신고서 작성', 'pageview':'2021년도 자기평가서 고과대상'})
+    return render(request, 'self_post_report_etc.html', {'report_detail_001': report_detail_001, 'report_detail_002': report_detail_002, 'report_detail_003': report_detail_003, 'report_detail_004': report_detail_004, 'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기신고서 작성', 'pageview':'2024년도 자기평가서 고과대상'})
 
 
 
@@ -724,4 +724,4 @@ def self_submit_report_etc (request, pk):
         filled_form = ReportETCForm(ready_form)
         if filled_form.is_valid():
             filled_form.save()
-    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2021년도 자기신고서', 'pageview':'2021년도 자기평가서 작성'})
+    return render(request, 'self_detail.html', {'users_detail':users_detail, 'name':user_name, 'user_name':user_name, 'user_level' : user_level, 'user_email' : user_email, 'user_team':user_team, 'title':'2024년도 자기신고서', 'pageview':'2024년도 자기평가서 작성'})

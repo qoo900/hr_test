@@ -22,6 +22,7 @@
                                                 <thead class="bg-light">
                                                     <tr>
                                                         <th style="width: 100px">구분</th>
+                                                        <th>소속</th>
                                                         <th>고과대상</th>
                                                         <th>평가기간</th>
                                                     </tr>
@@ -50,11 +51,15 @@
                                                             <h5 class="font-size-14 text-truncate">
                                                                 {{ iname.team }}
                                                             </h5>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{% url 'self_detail' iname.pk %}" class="text-primary">
                                                             <p class="mb-0"><span class="fw-medium">{{ iname.name }}</span></p>
                                                             </a>
                                                         </td>
                                                         <td>
-                                                            2021.12.13 (월) ~ 2021.12.20 (월)
+                                                            2024.12.02 (월) ~ 2021.12.20 (금)
                                                         </td>
                                                     </tr>
                                                     {% endfor %}
