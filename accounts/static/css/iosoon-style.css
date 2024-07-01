@@ -226,7 +226,7 @@ html, body {
 }
 
 .website-logo-inside .logo img.logo-size {
-    opacity: 0 !important;
+    opacity: 1 !important;
 }
 
 .no-side .website-logo-inside {

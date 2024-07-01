@@ -49,7 +49,7 @@ def home(request):
                     'users_list':users_list, 
                    'users_url':users_url, 
                    'title':'대시보드', 
-                   'pageview':'Kong-HR'})
+                   'pageview':'Trendmecca-HR'})
 
 
 @login_required
@@ -83,13 +83,13 @@ def new_comment(request, post_id):
         finished_form.save()
     return redirect('detail', post_id)
 
-#익명게시판
+#게시판
 def freehome(request):
     # posts = Post.objects.all()
     freeposts = FreePost.objects.filter().order_by('-date')
-    return render(request, 'free_index.html', {'freeposts': freeposts, 'title':'익명게시판', 'pageview':'Kong-HR'})
+    return render(request, 'free_index.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
 
-#익명게시판 글쓰기
+#게시판 글쓰기
 @login_required
 def freepostcreate(request):
     if request.method == 'POST' or request.method == 'FILES':
@@ -101,15 +101,15 @@ def freepostcreate(request):
             return redirect('freehome')
     else:
         form = FreePostForm()
-    return render(request, 'free_post_form.html', {'form':form, 'title':'글쓰기', 'pageview':'익명게시판'})
+    return render(request, 'free_post_form.html', {'form':form, 'title':'글쓰기', 'pageview':'문의게시판'})
 
-#익명게시판 상세페이지
+#게시판 상세페이지
 def freedetail(request, post_id):
     post_detail = get_object_or_404(FreePost, pk=post_id)
     comment_form = FreeCommentForm()
-    return render(request, 'free_detail.html', {'post_detail':post_detail, 'comment_form': comment_form, 'title':'상세페이지', 'pageview':'익명게시판'})
+    return render(request, 'free_detail.html', {'post_detail':post_detail, 'comment_form': comment_form, 'title':'상세페이지', 'pageview':'문의게시판'})
 
-#익명게시판 댓글추가
+#게시판 댓글추가
 def new_freecomment(request, post_id):
     filled_form = FreeCommentForm(request.POST)
     if filled_form.is_valid():
