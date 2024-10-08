@@ -52,6 +52,14 @@ def home(request):
                    'pageview':'Trendmecca-HR'})
 
 
+#근태관리 확인용(TEST)
+def attendance(request):
+    # posts = Post.objects.all()
+    freeposts = FreePost.objects.filter().order_by('-date')
+    return render(request, 'attendance_index.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
+
+
+
 @login_required
 def postcreate(request):
     # request method가 POST일 경우  

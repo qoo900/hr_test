@@ -28,6 +28,10 @@ urlpatterns = [
     path('detail/<int:post_id>', snsapp_views.detail, name='detail'),
     path('new_comment/<int:post_id>', snsapp_views.new_comment, name='new_comment'),
     
+    path('attendance/', snsapp_views.attendance, name='attendance'),
+
+
+
     path('freehome/', snsapp_views.freehome, name='freehome'),
     path('freepostcreate', snsapp_views.freepostcreate, name='freepostcreate'),
     path('freedetail/<int:post_id>', snsapp_views.freedetail, name='freedetail'),
