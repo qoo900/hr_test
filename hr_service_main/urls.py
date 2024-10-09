@@ -1,4 +1,4 @@
-"""hr_service_v2 URL Configuration
+"""hr_service_main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
