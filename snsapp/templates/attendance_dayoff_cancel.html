@@ -1,0 +1,84 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+        <!-- DataTables -->
+        <link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'libs/datatables.net-select-bs4/css//select.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />     
+
+{% endblock extra_css %}
+
+{% block content %}                        
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">※ TEST ※</h4>
+                        <p class="card-title-desc">
+                            Bizmeka 휴가취소 신청 데이터 확인
+                        </p>
+                        {% if user.is_authenticated %}
+                        <div>
+                            <a href="{% url 'freepostcreate' %}" class="btn btn-success mb-2"><i class="mdi mdi-refresh me-2"></i>새로고침</a>
+                        </div>
+                        {% endif %}
+                        <br/>
+                        <table id="alternative-page-datatable" class="table dt-responsive nowrap w-100 mb-0 table-nowrap">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th width='2%'>번호</th>
+                                    <th width='70%'>글 제목</th>
+                                    <th>작성 날짜</th>
+                                    <th>작성자</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in freeposts %}
+                                <tr>
+                                    <td>{{ post.id }}</td>
+                                    <td><a href="{% url 'freedetail' post.id %}">{{ post.title }}</a></td>
+                                    <td>{{ post.date }}</td>
+                                    <td>익명</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>                  
+                        </table>
+                        
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+
+            </div> <!-- end col-->
+        </div> <!-- end row-->
+
+{% endblock content %}	
+
+{% block extra_javascript %}
+        <!-- Required datatable js -->
+        <script src="{% static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+        <!-- Buttons examples -->
+        <script src="{% static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{% static 'libs/jszip/jszip.min.js' %}"></script>
+        <script src="{% static 'libs/pdfmake/build/pdfmake.min.js' %}"></script>
+        <script src="{% static 'libs/pdfmake/build/vfs_fonts.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+        <script src="{% static 'libs/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+        
+        <!-- Responsive examples -->
+        <script src="{% static 'libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{% static 'js/pages/datatables.init.js' %}"></script>
+{% endblock extra_javascript %}

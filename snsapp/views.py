@@ -52,12 +52,25 @@ def home(request):
                    'pageview':'Trendmecca-HR'})
 
 
-#근태관리 확인용(TEST)
-def attendance(request):
+#근태관리 확인용 캡스(TEST)
+def attendance_caps(request):
     # posts = Post.objects.all()
     freeposts = FreePost.objects.filter().order_by('-date')
-    return render(request, 'attendance_index.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
+    return render(request, 'attendance_caps.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
 
+
+#근태관리 확인용 휴가신청(TEST)
+def attendance_dayoff(request):
+    # posts = Post.objects.all()
+    freeposts = FreePost.objects.filter().order_by('-date')
+    return render(request, 'attendance_dayoff.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
+
+
+#근태관리 확인용 휴가취소 신청(TEST)
+def attendance_dayoff_cancel(request):
+    # posts = Post.objects.all()
+    freeposts = FreePost.objects.filter().order_by('-date')
+    return render(request, 'attendance_dayoff_cancel.html', {'freeposts': freeposts, 'title':'문의게시판', 'pageview':'Trendmecca-HR'})
 
 
 @login_required

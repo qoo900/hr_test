@@ -28,9 +28,9 @@ urlpatterns = [
     path('detail/<int:post_id>', snsapp_views.detail, name='detail'),
     path('new_comment/<int:post_id>', snsapp_views.new_comment, name='new_comment'),
     
-    path('attendance/', snsapp_views.attendance, name='attendance'),
-
-
+    path('attendance_caps/', snsapp_views.attendance_caps, name='attendance_caps'),
+    path('attendance_dayoff/', snsapp_views.attendance_dayoff, name='attendance_dayoff'),
+    path('attendance_dayoff_cancel/', snsapp_views.attendance_dayoff_cancel, name='attendance_dayoff_cancel'),
 
     path('freehome/', snsapp_views.freehome, name='freehome'),
     path('freepostcreate', snsapp_views.freepostcreate, name='freepostcreate'),
@@ -44,7 +44,10 @@ urlpatterns = [
 
     path('accounts/', include('allauth.urls')),
 
-    path('self_home', self_views.self_home, name='self_home'),
+
+
+    path('self_home', snsapp_views.attendance_caps, name='self_home'),
+#    path('self_home', self_views.self_home, name='self_home'),
     
     path('self_detail/<int:pk>', self_views.self_detail, name='self_detail'),
     

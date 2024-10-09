@@ -16,83 +16,12 @@
 {% block content %}                        
         <div class="row">
             <div class="col-12">
+                
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">※ TEST ※</h4>
                         <p class="card-title-desc">
                             CAPS 데이터 확인
-                        </p>
-                        {% if user.is_authenticated %}
-                        <div>
-                            <a href="{% url 'freepostcreate' %}" class="btn btn-success mb-2"><i class="mdi mdi-refresh me-2"></i>새로고침</a>
-                        </div>
-                        {% endif %}
-                        <br/>
-                        <table id="alternative-page-datatable" class="table dt-responsive nowrap w-100 mb-0 table-nowrap">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th width='2%'>번호</th>
-                                    <th width='70%'>글 제목</th>
-                                    <th>작성 날짜</th>
-                                    <th>작성자</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for post in freeposts %}
-                                <tr>
-                                    <td>{{ post.id }}</td>
-                                    <td><a href="{% url 'freedetail' post.id %}">{{ post.title }}</a></td>
-                                    <td>{{ post.date }}</td>
-                                    <td>익명</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>                  
-                        </table>
-                        
-                    </div> <!-- end card body-->
-                </div> <!-- end card -->
-
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">※ TEST ※</h4>
-                        <p class="card-title-desc">
-                            Bizmeka 휴가신청 데이터 확인
-                        </p>
-                        {% if user.is_authenticated %}
-                        <div>
-                            <a href="{% url 'freepostcreate' %}" class="btn btn-success mb-2"><i class="mdi mdi-refresh me-2"></i>새로고침</a>
-                        </div>
-                        {% endif %}
-                        <br/>
-                        <table id="alternative-page-datatable" class="table dt-responsive nowrap w-100 mb-0 table-nowrap">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th width='2%'>번호</th>
-                                    <th width='70%'>글 제목</th>
-                                    <th>작성 날짜</th>
-                                    <th>작성자</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for post in freeposts %}
-                                <tr>
-                                    <td>{{ post.id }}</td>
-                                    <td><a href="{% url 'freedetail' post.id %}">{{ post.title }}</a></td>
-                                    <td>{{ post.date }}</td>
-                                    <td>익명</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>                  
-                        </table>
-                        
-                    </div> <!-- end card body-->
-                </div> <!-- end card -->
-
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">※ TEST ※</h4>
-                        <p class="card-title-desc">
-                            Bizmeka 휴가취소 신청 데이터 확인
                         </p>
                         {% if user.is_authenticated %}
                         <div>

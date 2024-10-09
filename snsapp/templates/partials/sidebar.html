@@ -9,20 +9,32 @@
 					<ul class="metismenu list-unstyled" id="side-menu">
 						<li class="menu-title" key="t-menu">Menu</li>
 						<!--<li>
-							<a href="{% url 'home' %}" class="waves-effect"> <i class="ri-dashboard-line"></i>
+							<a href="{% url 'home' %}" class="waves-effect"> <i class="ri-dashboard-line"></i> -->
 								<!-- <span class="badge rounded-pill bg-success float-end">3</span> -->
-								<!--<span key="hr-dashboards">대시보드</span>
-							</a>
-						</li>-->
+								<!--<span key="hr-dashboards">대시보드</span> 
+							</a>-->
+						<!--</li>-->
 
 						<li>
-							<a href="{% url 'attendance' %}" class="waves-effect"> <i class="ri-calendar-check-line"></i>
-								<span key="attendance">근태관리 확인용(TEST)</span>
+							<a href="{% url 'attendance_caps' %}" class="waves-effect"> <i class="ri-calendar-check-line"></i>
+								<span key="attendance">근태관리 확인용 캡스(TEST)</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="{% url 'attendance_dayoff' %}" class="waves-effect"> <i class="ri-calendar-check-line"></i>
+								<span key="attendance">근태관리 확인용 휴가신청 (TEST)</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="{% url 'attendance_dayoff_cancel' %}" class="waves-effect"> <i class="ri-calendar-check-line"></i>
+								<span key="attendance">근태관리 확인용 휴가취소 신청(TEST)</span>
 							</a>
 						</li>
 
 						<!--<li>
-							<a href="{% url 'self_home' %}" class="waves-effect"> <i class="ri-user-line"></i>
+							<a href="#" class="waves-effect"> <i class="ri-user-line"></i>
 								<span key="self-evaluation">인사평가</span>
 							</a>
 						</li>-->
@@ -49,11 +61,11 @@
 								</li>
 							</ul>
 						</li>-->
-						<li>
+						<!--<li>
 							<a href="{% url 'freehome' %}" class="waves-effect"> <i class="ri-wechat-2-line"></i>
 								<span key="no-comment">문의게시판</span>
 							</a>
-						</li>
+						</li>-->
 
 					</ul>
 				</div>
