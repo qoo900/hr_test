@@ -11,17 +11,27 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# reading .env file
+environ.Env.read_env(
+    env_file = os.path.join(BASE_DIR, '.env')
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l73sj_@5h-y1oqh6uza$i-izgc85k$lre*4fp)@6=#$4246j^u'
+SECRET_KEY = env('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -157,9 +167,27 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+    },
 
+    'caps_db': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('db_1'),
+        'USER': env('db_id_1'),
+        'PASSWORD': env('db_pw_1'),
+        'HOST': env('db_host_1'),
+        'PORT': env('db_port_1'),
+    },
+
+    'bizmeka_db': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('db_2'),
+        'USER': env('db_id_2'),
+        'PASSWORD': env('db_pw_2'),
+        'HOST': env('db_host_2'),
+        'PORT': env('db_port_2'),
+    }
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

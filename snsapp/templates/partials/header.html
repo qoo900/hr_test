@@ -67,20 +67,26 @@
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a class="dropdown-item" href="#">
-                            <i class="ri-wallet-2-line align-middle me-1"></i>인사기록카드</a>
-                        <!--
-                        <a class="dropdown-item d-block" href="#" key="t-t-settings">
-                            <i class="ri-settings-2-line align-middle me-1"></i>설정</a>
-                        -->
-                        <div class="dropdown-divider"></div>
+
                         {% if user.is_authenticated %}
-                            {% if user.socialaccount_set.all %}
+                        {% if user.socialaccount_set.all %}
+
+                        <div class="dropdown-divider"></div>
+
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i>인사기록카드</a>
+                                <!--<a class="dropdown-item d-block" href="#" key="t-t-settings"><i class="ri-settings-2-line align-middle me-1"></i>설정</a>-->
+
                                 <a class="dropdown-item text-danger" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="ri-shut-down-line align-middle me-1 text-danger"></i>
                                 <span class="align-middle" key="t-logout">로그아웃</span></a>
+
                             {% else %}
+
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i>인사기록카드</a>
+                                <!--<a class="dropdown-item d-block" href="#" key="t-t-settings"><i class="ri-settings-2-line align-middle me-1"></i>설정</a>-->
+
                                 <a class="dropdown-item" href="{% url 'reset_password' %}">
                                     <i class="mdi mdi-lock text-muted font-size-16 align-middle me-1"></i>
                                     <span class="align-middle" key="t-lock-screen">비밀번호변경</span></a>
@@ -88,11 +94,15 @@
                                     <i class="ri-shut-down-line align-middle me-1 text-danger"></i>
                                     <span class="align-middle" key="t-logout">로그아웃</span></a>
                             {% endif %}
+
                         {% else %}
+
                             <a class="dropdown-item" href="{% url 'login' %}">
                                 <i class="mdi mdi-login-variant text-muted font-size-16 align-middle me-1"></i>
                                 <span class="align-middle" key="t-login">로그인</span></a>
+
                         {% endif %}
+
                     </div>
                 </div>
             </div>
